@@ -17,9 +17,15 @@
     <body class="is-preload">    
        <%
             HttpSession s = request.getSession();
+            String usuario=(String)s.getAttribute("galeno_user11");
+            if(usuario==null)
+            {
+                response.sendRedirect("index.jsp");
+            }
             //variables de session
         %>    
-        <label id="usuario" style="display:none;"><%= s.getAttribute("galeno_user11")%> </label> 
+        <label  id="usuario"      style="display:none;"><%= s.getAttribute("galeno_user11")%></label>
+        <label  id="departamento" style="display:none;"><%= s.getAttribute("galeno_departamento")%></label>
         <label id="nombre"></label>
 
         <header id="header" style="">
@@ -38,7 +44,21 @@
         <section class="wrapper">
             <div class="inner">
                 <div class="highlights">
-                    <!-- PRIMER MODULO -->
+                     <!-- PRIMER MODULO -->
+                    <section class="animadoagregarinformacion">
+                        <div class="content">
+                            <header>
+                                <a href="">
+                                    <img alt="" src="img/medicina-general-96.png">
+                                    <span class="label"></span></a>
+                                <h3 style="color:#007653; font-weight: bold">MEDICINA GENERAL</h3>
+
+                            </header>
+                            <p>Ingresar al módulo para gestionar la informacion de los pacientes atendidos en medicina general y ver reportes</p>
+                            <input type="button" onclick="javascript:abrirMedicinaGeneral();" value="Ingresar" class="button primary" style=" background: #007653 !important;"/>
+                        </div>
+                    </section>
+                    <!--  
                     <section class="animadoagregarinformacion">
                         <div class="content">
                             <header>
@@ -52,7 +72,7 @@
                             <a id="PaginaMedi" class="button primary" style=" background: #007653 !important;" >Agregar consulta o receta</a>
                         </div>
                     </section>
-
+                     -->
                     <!-- SEGUNDO MODULO -->
                     <section class="animadoagregarinformacion">
                         <div class="content">
@@ -62,54 +82,29 @@
                                     <span class="label"></span></a>
                                 <h3 style="color:#007653; font-weight: bold" class="textgrueso">TERAPIA FÍSICA</h3>
                             </header>
-                            <p>Ingresar al módulo terapia física para guardar la informacion de los pacientes atendidos</p>
-                            <!--<a id="PaginaTerapia" class="button primary" style=" background: #007653 !important;">Ingresar</a>-->
+                            <p>Ingresar al módulo terapia física para guardar la informacion de los pacientes atendidos y ver reportes sobre pacientes atendidos</p>
+                            <!--<a href="MenuTerapiaFisica.jsp" class="button primary" style=" background: #007653 !important;">Ingresar</a>-->
                             <input type="button" onclick="javascript:abrirTerapiaFisica();" value="Ingresar" class="button primary" style=" background: #007653 !important;"/>
                             
                         </div>
                     </section>
                     
-                    <!-- TERCER MODULO -->
+                    <!-- PSICOLOGIA MODULO -->
                     <section class="animadoagregarinformacion">
                         <div class="content">
                             <header>
                                 <a href="" >
-                                    <img alt="" src="img/icons8_account_96px.png">
+                                    <img alt="" src="img/Principal_psicologia_96.png">
                                     <span class="label"></span></a>
-                                <h3 style="color:#007653; font-weight: bold" class="textgrueso">Reportes</h3>
+                                <h3 style="color:#007653; font-weight: bold" class="textgrueso">PSICOLOGÍA</h3>
                             </header>
-                            <p>Descargar en PDF las actividades o recetas medicas de los pacientes</p>
-                            <a href="Reportes.jsp" class="button primary" style=" background: #007653 !important;">Ver reportes</a>
+                            <p>Ingresar al módulo psicología para gestionar la informacion de los pacientes atendidos</p>
+                            <input type="button" onclick="javascript:abrirPsicologia();" value="Ingresar" class="button primary" style=" background: #007653 !important;"/>
+                            
                         </div>
                     </section>
-
-                    <!-- CUARTO MODULO -->                 
-                    <section class="animadoagregarinformacion">
-                        <div class="content">
-                            <header>
-                                <a href="">
-                                    <img alt="" src="img/icons8_accounting_96px.png">
-                                    <span class="label"></span></a>
-                                <h3 style="color:#007653; font-weight: bold">Historial</h3>
-                            </header>
-                            <p>Mostrar la información de las actividades de los pacientes</p>
-                            <a href="HistorialPaciente.jsp" class="button primary"style=" background: #007653 !important;">Ver historial</a>
-                        </div>
-                    </section>
-
-                    <!-- QUINTO MODULO -->
-                    <!-- <section class="animadoagregarinformacion">
-                         <div class="content">
-                             <header>
-                                 <a href="">
-                                     <img alt="" src="img/icons8_cv_96px.png">
-                                     <span class="label"></span></a>
-                                 <h3 style="color:#007653; font-weight: bold">Transferir Paciente</h3>
-                             </header>
-                             <p>Transferir un paciente a otro departamento</p>
-                             <a href="TransferirPaciente.jsp" class="button primary" style=" background: #007653 !important;">Acceder</a>
-                         </div>
-                     </section>-->
+                    
+                    
                     <!-- QUINTO MODULO -->
                     <section class="animadoagregarinformacion">
                         <div class="content">
@@ -120,37 +115,7 @@
                                 <h3 style="color:#007653; font-weight: bold">Actualizar datos personales medico</h3>
                             </header>
                             <p>Podrá actualizar sus datos personales, en caso de alguna actualización</p>
-                            <a href="ActualizarDatosPersonalesMedicos.jsp" class="button primary" style=" background: #007653 !important;">Acceder</a>
-                        </div>
-                    </section>
-                    <!-- SEXTO MODULO -->
-                    <section class="animadoagregarinformacion">
-                        <div class="content">
-                            <header>
-                                <a href="">
-                                    <img alt="" src="svg/medico.svg" width="96" height="96">
-                                    <span class="label"></span></a>
-                                <h3 style="color:#007653; font-weight: bold">Ingresar Paciente</h3>
-                            </header>
-                            <p>Ingresar datos personales por primera vez del paciente</p>
-                            <a href="ingreso.jsp" class="button primary" style=" background: #007653 !important;">Ingresar Paciente</a>
-                            <br>
-                            <a href="Actualizardatospaciente.jsp" class="button primary" style=" background: #007653 !important; margin-top: 12px;">Actualizar paciente</a>
-                        </div>
-                    </section>
-                    <!-- SEPTIMO MODULO -->
-                    <section class="animadoagregarinformacion">
-                        <div class="content">
-                            <header>
-                                <a href="">
-                                    <img alt="" src="svg/resultados-de-los-examenes.svg" width="96" height="96">
-                                    <span class="label"></span></a>
-                                <h3 style="color:#007653; font-weight: bold">EXAMENES</h3>
-                            </header>
-                            <p>Subir o actualizar examenes del paciente</p>
-                            <a href="ListarPacientes.jsp" class="button primary" style=" background: #007653 !important;">Subir examenes</a>
-                            <br>
-                            <a href="ListarPacientesGeneral.jsp" class="button primary" style=" background: #007653 !important; margin-top: 12px;">Actualizar examenes</a>
+                            <input type="button" onclick="javascript:abrirActualizarDatos();" value="Acceder" class="button primary" style=" background: #007653 !important;"/>
                         </div>
                     </section>
                 </div>
@@ -158,10 +123,32 @@
         </section>
         <!-- Scripts -->
         <script>
-            function abrirTerapiaFisica(){
-              window.location.href = "./Terapiafisica.jsp?user="+document.getElementById("usuario").innerHTML;
-              
+            //document.getElementById("departamento").innerHTML
+            function abrirMedicinaGeneral(){
+                if(document.getElementById("departamento").innerHTML === "1"){
+                    window.location.href = "./MenuMedicinaGeneral.jsp"; 
+                }else{
+                    alert("Acceso permitido solo para el departamento de Medicina General");
+                }//*/
             }
+            function abrirPsicologia(){
+                if(document.getElementById("departamento").innerHTML === "2"){
+                    window.location.href = "./MenuPsicologia.jsp"; 
+                }else{
+                    alert("Acceso permitido solo para el departamento de Psicología");
+                }//*/
+            }
+            function abrirTerapiaFisica(){
+                if(document.getElementById("departamento").innerHTML === "3"){
+                    window.location.href = "./MenuTerapiaFisica.jsp"; 
+                }else{
+                    alert("Acceso permitido solo para el departamento de Terapia Física");
+                }//*/
+            }
+            function abrirActualizarDatos(){
+                window.location.href = "./ActualizarDatosPersonalesMedicos.jsp";
+            }
+            
         </script>
         <script src="js/jquery-2.1.1.min.js" type="text/javascript"></script>
         <script src="Principal/js/jquery.min.js"></script>

@@ -35,6 +35,9 @@ public class AddPaciente extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
+            
+            String red = request.getParameter("idx");
+            
             String TipoIden = request.getParameter("TipoIden");
             String Identificacion = request.getParameter("Identificacion");
             String PrimerNombre = request.getParameter("PrimerNombre");
@@ -73,7 +76,14 @@ public class AddPaciente extends HttpServlet {
                 boolean sw = InsertAddPaciente.agregarUsuario(busuario);
                 if (sw) {
 //                    JOptionPane.showMessageDialog(null, "PACIENTE AGREGADA/O CORECTAMENTE");
-                    response.sendRedirect("Principal.jsp");
+                    if(red.equals("mg")){
+                        response.sendRedirect("MenuMedicinaGeneral.jsp");
+                    }else if(red.equals("tf")){
+                        response.sendRedirect("MenuTerapiaFisica.jsp");
+                    }else{
+                        response.sendRedirect("Principal.jsp");
+                    }
+                  
 //                    request.getRequestDispatcher("Principal.jsp").forward(request, response);
                 } else {
 //                    out.println("Si estas viendo este mensaje es por que algo salio mal, no se pudo completar tu solicitud.");

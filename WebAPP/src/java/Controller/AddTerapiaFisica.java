@@ -167,7 +167,7 @@ public class AddTerapiaFisica extends HttpServlet {
                         
                         
                         if(resSe!= 0){
-                            response.sendRedirect("Principal.jsp");
+                            response.sendRedirect("resGuardarTerapia.jsp");
                         }
                         
                     }

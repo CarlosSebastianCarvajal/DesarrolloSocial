@@ -22,7 +22,7 @@
         <!--javascript:sendmail()-->
         <!--/WebAPP/AddGaleno-->
 
-        <form class="form1" action="/WebAPP/AddGaleno">
+        <form class="form1" action="AddGaleno"  method="GET" enctype="multipart/form-data">
             <section class="sec-main" >
                 <div class="div-cont-main">
                     <table style='width: 100%; text-align: center; margin-left: 20px; margin-top: 30px'>
@@ -108,7 +108,9 @@
                                 <td><div class="div-cont-lname"><input type="password" id="pass" class="inp-lname" placeholder="Ingrese una Contraseña"required="" name="pass"/> </div></td> 
                                 <td><div class="div-cont-sel-dep-to-transf"><select class="sel-dep-to-transf"required=""  name="departamento">
                                             <option>Seleccione un departamento</option>
-                                            <option>medicina</option>
+                                            <option>Medicina General</option>
+                                            <option>Psicología</option>
+                                            <option>Terapia Física</option>
                                         </select></div></td> 
                             </tr>
                         </tbody>
@@ -129,8 +131,8 @@
         crossorigin="anonymous"></script>
         <script>
                                     function cargarProvincias() {
-                                        var array = ["Azuay", "Bolívar", "Cañar", "Carchi", "Chimborazo", "Cotopaxi", "Oro", "Esmeraldas", "Galápagos", "Guayas", "Imbabura", "Loja", "LosRíos",
-                                            "Manabí", "MoronaSantiago", "Napo", "Orellana", "Pastaza", "Pichincha", "SantaElena", "SantoDomingo", "Sucumbíos", "Tungurahua", "ZamoraChinchipe"];
+                                        var array = ["Azuay", "Bolívar", "Cañar", "Carchi", "Chimborazo", "Cotopaxi", "El Oro", "Esmeraldas", "Galápagos", "Guayas", "Imbabura", "Loja", "Los Ríos",
+                                            "Manabí", "Morona Santiago", "Napo", "Orellana", "Pastaza", "Pichincha", "Santa Elena", "Santo Domingo", "Sucumbíos", "Tungurahua", "Zamora Chinchipe"];
                                         array.sort();
                                         addOptions("Provincia", array);
                                     }
@@ -153,7 +155,7 @@
                                             carchi: ["Tulcán", " Bolívar", "Espejo", "Mira", "Montúfar", "San Pedro de Huaca"],
                                             chimborazo: ["Riobamba", "Alausí", "Chambo", "Chunchi", "Colta", "Cumandá", "Guamote", "Guano", "Pallatanga", "Penipe"],
                                             cotopaxi: ["Latacunga", "La Maná", "Pangua", "Pujilí", "Salcedo", "Saquisilí", "Sigchos"],
-                                            oro: ["Machala", "Arenillas", "Atahualpa", "Balsas", "Chilla", "El Guabo", "Huaquillas", "Las Lajas", "Marcabelí", "Pasaje", "Piñas", "Portovelo", "Santa Rosa", "Zaruma"],
+                                            eloro: ["Machala", "Arenillas", "Atahualpa", "Balsas", "Chilla", "El Guabo", "Huaquillas", "Las Lajas", "Marcabelí", "Pasaje", "Piñas", "Portovelo", "Santa Rosa", "Zaruma"],
                                             esmeraldas: ["Esmeraldas", "Atacames", "Eloy Alfaro", "Muisne", "Quinindé", "Rioverde", "San Lorenzo"],
                                             galápagos: ["San Cristóbal", "Isabela", "Santa Cruz"],
                                             guayas: ["Guayaquil", "Alfredo Baquerizo Moreno", "Balao", "Balzar", "Colimes", "Daule", "Durán", "El Empalme", "El Triunfo", "General Antonio Elizalde", "Isidro Ayora", "Lomas de Sargentillo", "Marcelino Maridueña", "Milagro", "Naranjal", "Naranjito", "Nobol", "Palestina", "Pedro Carbo", "Playas", "Salitre", "Samborondón", "Santa Lucía", "Simón Bolívar", "Yaguachi"],
@@ -166,7 +168,7 @@
                                             orellana: ["Francisco de Orellana", "Aguarico", "La Joya de los Sachas", "Loreto"],
                                             pastaza: ["Pastaza", "Arajuno", "Mera", "Santa Clara"],
                                             pichincha: [" Quito", "Cayambe", "Mejía", "Pedro Moncayo", " Pedro Vicente Maldonado", "Puerto Quito", " Rumiñahui", "San Miguel de los Bancos"],
-                                            santaElena: ["Santa Elena", "La Libertad", "Salinas"],
+                                            santaelena: ["Santa Elena", "La Libertad", "Salinas"],
                                             santodomingo: ["Santo Domingo", "La Concordia"],
                                             sucumbíos: ["Lago Agrio", "Cascales", "Cuyabeno", "Gonzalo Pizarro", "Putumayo", "Shushufindi", "Sucumbíos"],
                                             tungurahua: ["Ambato", " Baños", "Cevallos", "Mocha", "Patate", "Pelileo", "Quero", "Santiago de Píllaro", "Tisaleo"],
@@ -177,7 +179,7 @@
                                         var provincias = document.getElementById('Provincia');
                                         var pueblos = document.getElementById('canton');
                                         var provinciaSeleccionada = provincias.value;
-
+                                        provinciaSeleccionada=provinciaSeleccionada.replace(' ','');
                                         // Se limpian los pueblos
                                         pueblos.innerHTML = '<option value="">Seleccione un canton...</option>'
 
@@ -246,9 +248,10 @@
                                             }
                                         }
                                     }
+                                    /*
                                     function mayus(e) {
                                         e.value = e.value.toUpperCase();
-                                    }
+                                    }*/
                                     function sendmail() {
 
                                         var email = $('#email').val();

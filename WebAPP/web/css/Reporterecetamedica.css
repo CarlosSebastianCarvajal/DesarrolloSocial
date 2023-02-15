@@ -33,6 +33,46 @@
     margin-left: 90px;
     color: #ffffff;
 }
+
+.div-head-tittle1
+{
+    width: 100%;    
+    height: 7.333vh;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;   
+    background-image: url('../img/bngGoni.png');
+}
+
+.div-head-tittle1 h2:before
+{
+    content: 'REPORTES PDF SEGUIMIENTO DEL CASO';
+    font: 900;
+    font-size: 1.5em;
+    margin-left: 90px;
+    color: #ffffff;
+}
+
+.div-head-tittle2
+{
+    width: 100%;    
+    height: 7.333vh;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;   
+    background-image: url('../img/bngGoni.png');
+}
+
+.div-head-tittle2 h2:before
+{
+    content: 'REPORTES PDF DE PACIENTES ATENDIDOS';
+    font: 900;
+    font-size: 1.5em;
+    margin-left: 90px;
+    color: #ffffff;
+}
 .sec-main
 {    
     width: 100%;

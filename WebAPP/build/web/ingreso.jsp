@@ -22,7 +22,8 @@
         <form class="form1" action="AddPaciente" autocomplete="off" style="margin-top:-30px">
             <section class="sec-main">
                 <div class="div-cont-main">
-
+                    <input hidden type="text" id="txt-idx" class="inp-ced"  name="idx" value="<%=request.getParameter("idx")%>"/>
+                    
                     <table style='width: 100%; text-align: center; margin-left: 20px; margin-top: 30px'>
                         <thead >
                             <tr>
@@ -149,9 +150,11 @@
         </form> 
         <script src="js/pais.js"></script>
         <script>
+                                    
+                                    
                                     function cargarProvincias() {
-                                        var array = ["Azuay", "Bolívar", "Cañar", "Carchi", "Chimborazo", "Cotopaxi", "Oro", "Esmeraldas", "Galápagos", "Guayas", "Imbabura", "Loja", "LosRíos",
-                                            "Manabí", "MoronaSantiago", "Napo", "Orellana", "Pastaza", "Pichincha", "SantaElena", "SantoDomingo", "Sucumbíos", "Tungurahua", "ZamoraChinchipe"];
+                                        var array = ["Azuay", "Bolívar", "Cañar", "Carchi", "Chimborazo", "Cotopaxi", "El Oro", "Esmeraldas", "Galápagos", "Guayas", "Imbabura", "Loja", "Los Ríos",
+                                            "Manabí", "Morona Santiago", "Napo", "Orellana", "Pastaza", "Pichincha", "Santa Elena", "Santo Domingo", "Sucumbíos", "Tungurahua", "Zamora Chinchipe"];
                                         array.sort();
                                         addOptions("Provincia", array);
                                     }
@@ -187,7 +190,7 @@
                                             orellana: ["Francisco de Orellana", "Aguarico", "La Joya de los Sachas", "Loreto"],
                                             pastaza: ["Pastaza", "Arajuno", "Mera", "Santa Clara"],
                                             pichincha: [" Quito", "Cayambe", "Mejía", "Pedro Moncayo", " Pedro Vicente Maldonado", "Puerto Quito", " Rumiñahui", "San Miguel de los Bancos"],
-                                            santaElena: ["Santa Elena", "La Libertad", "Salinas"],
+                                            santaelena: ["Santa Elena", "La Libertad", "Salinas"],
                                             santodomingo: ["Santo Domingo", "La Concordia"],
                                             sucumbíos: ["Lago Agrio", "Cascales", "Cuyabeno", "Gonzalo Pizarro", "Putumayo", "Shushufindi", "Sucumbíos"],
                                             tungurahua: ["Ambato", " Baños", "Cevallos", "Mocha", "Patate", "Pelileo", "Quero", "Santiago de Píllaro", "Tisaleo"],
@@ -198,6 +201,7 @@
                                         var provincias = document.getElementById('Provincia');
                                         var pueblos = document.getElementById('canton');
                                         var provinciaSeleccionada = provincias.value;
+                                        provinciaSeleccionada=provinciaSeleccionada.replace(' ','');
 
                                         // Se limpian los pueblos
                                         pueblos.innerHTML = '<option value="">Seleccione un canton...</option>'
@@ -268,9 +272,10 @@
                                             }
                                         }
                                     }
+                                    /*
                                     function mayus(e) {
                                         e.value = e.value.toUpperCase();
-                                    }
+                                    }*/
                                     function verificarCedula(cedula) {
                                         if (typeof (cedula) === 'string' && cedula.length === 10 && /^\d+$/.test(cedula)) {
                                             var digitos = cedula.split('').map(Number);

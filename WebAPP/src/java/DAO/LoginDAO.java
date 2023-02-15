@@ -26,14 +26,15 @@ public class LoginDAO {
     private String sql_command = "";
     private PreparedStatement pst = null;
 
-    public int SearchClienteLogin(Constructor tm) throws SQLException {
-        int cliente_id = 0;
-        sql_command = "Select galeno_id from galeno where galeno_user = '" + tm.getGaleno_user() + "' and galeno_pass = '" + getMD5(tm.getGaleno_pass()) + "'";
+    public int[] SearchGalenoLogin(Constructor tm) throws SQLException {
+        int[] galeno_id = {0,0};
+        sql_command = "Select galeno_id, galeno_departamento  from galeno where galeno_user = '" + tm.getGaleno_user() + "' and galeno_pass = '" + getMD5(tm.getGaleno_pass()) + "'";
         try {
             pst = cn.getConecction().prepareStatement(sql_command);
             rs = pst.executeQuery();
             if (rs.next()) {
-                cliente_id = rs.getInt(1);
+                galeno_id[0] = rs.getInt(1);
+                galeno_id[1] = rs.getInt(2);
             }
         } catch (SQLException e) {
             System.err.println(e.getMessage());
@@ -52,7 +53,7 @@ public class LoginDAO {
                 System.err.println(e.getMessage());
             }
         }
-        return cliente_id;
+        return galeno_id;
     }
 
     public static String getMD5(String input) {

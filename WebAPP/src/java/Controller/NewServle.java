@@ -32,7 +32,7 @@ public class NewServle extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
+        response.setContentType("text/plain;charset=UTF-8");
         String op = request.getParameter("op");
         HttpSession sesion = request.getSession();
         PrintWriter out = response.getWriter();
@@ -53,6 +53,7 @@ public class NewServle extends HttpServlet {
                 String users = request.getParameter("user");
                 Insertarecetamedica buscau = new Insertarecetamedica();
                 String jsonnn = new Gson().toJson(buscau.Listbuscarm(users));
+                System.out.println("aqui");
                 System.out.print(jsonnn);
                 response.setContentType("text/javascript");
                 response.getWriter().print(jsonnn);
@@ -63,6 +64,7 @@ public class NewServle extends HttpServlet {
 
                 String idDoctor = request.getParameter("galenoid");
                 String pacienteid = request.getParameter("pacienteid");
+
                 Insertarecetamedica insertarreceta = new Insertarecetamedica();
                 int id_encabezado = insertarreceta.agregarrecetamedicaencabezado(idDoctor, pacienteid, x);
 
@@ -73,9 +75,14 @@ public class NewServle extends HttpServlet {
                     JsonObject gsonObj = item.getAsJsonObject();
                     String medicamento = gsonObj.get("medicamento").getAsString();
                     String indicaciones = gsonObj.get("indicaciones").getAsString();
+
                     insertarreceta.agregarrecetamedicadetalle(id_encabezado, medicamento, indicaciones);
                 }
+                
                 response.getWriter().write(String.valueOf(id_encabezado));
+                System.out.println("Mensaje 111111");
+                response.sendRedirect("MenuMedicinaGeneral.jsp");
+                System.out.println("Mensaje 222222");
 
                 //JsonParser jsondetalle = new JsonParse();
                 ////VALIDAR LOS TEXT

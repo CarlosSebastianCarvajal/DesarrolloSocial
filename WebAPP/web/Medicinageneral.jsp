@@ -22,7 +22,7 @@
 
     <form id="form1" action="AddMedicinaGeneral" method="POST" enctype="multipart/form-data">
         <section class="sec-main">
-            <div class="div-cont-main">
+            <div id="divv" class="div-cont-main">
                 <div class="div-cont-ced">
                     <input type="button" id="btn-actionb" class="inp-search" value="Buscar"/>
                     <input type="text" id="txt-cede" class="inp-ced" onkeypress='return validaNumericos(event)' placeholder="Cédula" name="Identificacion" maxlength="15"/>
@@ -202,16 +202,93 @@
                                         <option>Preventivo</option>
                                         <option>Definitivo</option>
                                     </select></div> </th> 
-                        </tr>                        
+                        </tr>
+
+                        
+                        <!--
                         <tr>
                             <td>  <input type="submit" id="btn-actiong" class="btn-accept" value="Guardar"/></td>
                                 <%--  <td><input type="button" id="btn-actionc" class="btn-accept" value="Cancelar"/></td>            --%>                
                             <td>
                                 <a><input type="button" id="btn-actionr" class="btn-accept" value="Receta" /></a>
                             </td>
+                        </tr>  --> 
+                    </tbody>
+                </table>   
+                           
+                            <hr />
+                            
+                <table style='width: 100%; text-align: center; margin-left: 20px; margin-top: 30px; margin-bottom: 30px'> 
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div class="col-sm-4 col-xs well">
+                                    <a href="#info2" class="inf"><h3>Agregar Receta Médica</h3></a>
+                                </div>
+                            </td>
+                            
+                        </tr>
+                        <tr>
+                            <td>
+                                <div id="info2" class="oculto">
+                                    <section>
+                                        <div>
+                                            <table style='width: 100%; text-align: center; margin-left: 20px; margin-top: 30px'>
+                                                <thead >
+                                                    <tr>                          
+                                                        <th>Medicamento</th>
+                                                        <th>Indicación Médica</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <input hidden type="text" id="txt-tabla-datos-medicamentos" name="txt-tabla-datos-medicamentos" class="inp-lname"/>
+                                                        <td><div class="div-cont-lname"><input type="text" onkeyup="mayus(this);" id="txt-medicamento" class="inp-lname" placeholder="Medicamento" name="medicamento"/></div></td>
+                                                        <td><div class="div-cont-name"><input type="text"onkeyup="mayus(this);" id="txt-med-indicacion" class="inp-name" placeholder="Indicación Médica" name="indicaciones"/></div></td>
+                                                        <td><div style='margin-top: -20px !important;'class="div-cont-lname"><input type="button" id="btn-action-receta" class="btn-accept" value="+"> 
+                                                    </tr>
+                                                </tbody>                        
+                                            </table> 
+
+                                            <div style="width: 80%; height: auto; margin-left: auto; margin-right: auto" >
+                                                <div >
+                                                    <table id="tablaReceta" style='width: 100%; text-align: center; margin-left: 20px; margin-top: 30px'>
+                                                        <thead>
+                                                            <tr> 
+
+                                                                <td>Nª</td>
+                                                                <td>Medicamentos</td>
+                                                                <td>Indicaciones Médicas</td>
+                                                                <td>Acciones</td>
+                                                            </tr>
+                                                        </thead>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </section>
+                                </div>
+                            </td>
+                            
+                        </tr>
+                        
+                    </tbody>
+                </table>
+                <hr />
+               <br /> 
+               <br /> 
+                <table style='width: 100%; text-align: center; margin-left: 20px; margin-top: 30px'> 
+                    <tbody>              
+                        <tr>
+                            <td>
+                                <input type="button" id="btn-actionc" class="btn-accept" value="Cancelar"/>
+                            </td>       
+                            <td>
+                                <input type="submit" id="btn-actiong" class="btn-accept" value="Guardar"/>
+                            </td>
                         </tr>
                     </tbody>
-                </table>          
+                </table>
             </div>
         </section>
 
@@ -222,6 +299,7 @@
 <footer></footer>
 <script src="js/JQuery.js" type="text/javascript"></script> 
 <script src="js/Buscadorpaciente.js" type="text/javascript"></script> 
+<script src="js/MG-AddReceta.js" type="text/javascript"></script>
 <script type="text/javascript">
                             function validaNumericos(event) {
                                 if (event.charCode >= 48 && event.charCode <= 57) {
@@ -277,10 +355,10 @@
                                             $("#list").append("<li><a>" + data[i].content + "</a></li>");
                                     }, "json");
                                 });
-                            })
+                            })/*
                             function mayus(e) {
                                 e.value = e.value.toUpperCase();
-                            }
+                            }*/
                             function verificarCedula(cedula) {
                                 if (typeof (cedula) == 'string' && cedula.length == 10 && /^\d+$/.test(cedula)) {
                                     var digitos = cedula.split('').map(Number);

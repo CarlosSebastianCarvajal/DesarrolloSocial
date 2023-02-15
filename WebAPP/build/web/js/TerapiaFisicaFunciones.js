@@ -22,7 +22,7 @@ $(document).ready(function () {
     });
 
     $("#btn-actionc").click(function () {
-        window.location.href = "./Principal.jsp";
+        window.location.href = "./MenuTerapiaFisica.jsp";
         //window.location.href = "./RecetaMedica.jsp?user=" + getQueryVariableRe();
     });
     usermedico();

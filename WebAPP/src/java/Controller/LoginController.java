@@ -26,14 +26,15 @@ public class LoginController extends HttpServlet {
             LoginDAO lg = new LoginDAO();
             HttpSession sesion = request.getSession(true);
             int rspta = 0;
-            int cliente_id = 0;
+            int[] galeno_id = {0,0};
             String usuario = request.getParameter("usuario");
             String clave = request.getParameter("clave");
             tm.setGaleno_user(usuario);
             tm.setGaleno_pass(clave);
-            cliente_id = new DAO.LoginDAO().SearchClienteLogin(tm);
-            if (cliente_id != 0) {
+            galeno_id = new DAO.LoginDAO().SearchGalenoLogin(tm);
+            if (galeno_id[0] != 0) {
                 sesion.setAttribute("galeno_user11", usuario);
+                sesion.setAttribute("galeno_departamento", String.valueOf(galeno_id[1]));
 //                response.sendRedirect("Principal.jsp");
                 response.sendRedirect(request.getContextPath() + "/Principal.jsp");
             } else {

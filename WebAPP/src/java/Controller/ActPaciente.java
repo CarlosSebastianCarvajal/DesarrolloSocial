@@ -40,6 +40,8 @@ public class ActPaciente extends HttpServlet {
         response.setContentType("text/plain;charset=UTF-8");
         out = response.getWriter();
         session = request.getSession(false);
+        
+        String red = request.getParameter("idx");
         String TipoIden = request.getParameter("TipoIden");
         String Identificacion = request.getParameter("Identificacion");
         String PrimerNombre = request.getParameter("PrimerNombres");
@@ -92,7 +94,15 @@ public class ActPaciente extends HttpServlet {
             ps.setString(18, cond);
             ps.executeUpdate();
 //            JOptionPane.showMessageDialog(null, "ACTUALIZADO INFORMACION CORRECTAMENTE");
-            response.sendRedirect("Principal.jsp");
+            
+            if(red.equals("mg")){
+                response.sendRedirect("MenuMedicinaGeneral.jsp");
+            }else if(red.equals("tf")){
+                response.sendRedirect("MenuTerapiaFisica.jsp");
+            }else{
+                response.sendRedirect("Principal.jsp");
+            }
+            
         } catch (IOException | SQLException e) {
             out.println("Exception: " + e);
             System.out.println("Exception1: " + e);

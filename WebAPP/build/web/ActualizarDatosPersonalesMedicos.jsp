@@ -33,7 +33,7 @@
             ResultSet rs;
             PreparedStatement ps;
             String sql;
-            sql = "select * from galeno where galeno_user='" + session.getAttribute("galeno_user11") + "'";
+            sql = "select * from galeno where galeno_user='" + s.getAttribute("galeno_user11") + "'";
             pst = cn.getConecction().prepareStatement(sql);
             rs = pst.executeQuery();
             while (rs.next()) {
@@ -127,9 +127,10 @@
                     if (letras.indexOf(tecla) == -1 && !tecla_especial)
                         return false;
                 }
+                /*
                 function mayus(e) {
                     e.value = e.value.toUpperCase();
-                }
+                }*/
                 function verificarCedula(cedula) {
                     if (typeof (cedula) == 'string' && cedula.length == 10 && /^\d+$/.test(cedula)) {
                         var digitos = cedula.split('').map(Number);

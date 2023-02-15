@@ -18,6 +18,7 @@
     <form class="form1" action="ActPaciente" method="POST" style="margin-top:30px">
         <section class="sec-main">
             <div class="div-cont-main">
+                <input hidden type="text" id="txt-idx" class="inp-ced"  name="idx" value="<%=request.getParameter("idx")%>"/>
                 <div class="div-cont-ced">
                     <input type="button" id="btn-actionbu" class="inp-search" value="Buscar"/>
                     <input type="text" id="txt-cedee" class="inp-ced" onkeypress='return validaNumericos(event)' placeholder="Cédula" name="cedula" maxlength="15"/>
@@ -264,9 +265,10 @@
                                         }
                                     }
                                 }
+                                /*
                                 function mayus(e) {
                                     e.value = e.value.toUpperCase();
-                                }
+                                }*/
                                 function verificarCedula(cedula) {
                                     if (typeof (cedula) === 'string' && cedula.length === 10 && /^\d+$/.test(cedula)) {
                                         var digitos = cedula.split('').map(Number);

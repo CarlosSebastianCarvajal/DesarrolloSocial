@@ -1,8 +1,35 @@
-$(document).ready(function () {
+var divv = document.getElementById('divv');
+var porc_div = 115;
 
+
+$(document).ready(function () {
+    divv.style.marginTop= porc_div + "%";
+    /*
     $("#btn-actionr").click(function () {
 
         window.location.href = "./RecetaMedica.jsp?user=" + getQueryVariableRe();
+    });*/
+    $(".oculto").hide();              
+    $(".inf").click(function(){
+          var nodo = $(this).attr("href");  
+          
+          if ($(nodo).is(":visible")){
+               $(nodo).hide();
+               porc_div = 115;
+               divv.style.marginTop= porc_div + "%";
+               return false;
+          }else{
+            $(".oculto").hide("slow");                             
+            $(nodo).fadeToggle("fast");
+            porc_div = 135;
+            divv.style.marginTop= porc_div + "%";
+            return false;
+          }
+    });
+    
+    $("#btn-actionc").click(function () {
+
+        window.location.href = "./MenuMedicinaGeneral.jsp";
     });
     usermedico();
 });
@@ -122,7 +149,7 @@ function buscador1() {
         }
 
     });
-
+  usermedico();
 
 }
 function validaNumericosA(event)

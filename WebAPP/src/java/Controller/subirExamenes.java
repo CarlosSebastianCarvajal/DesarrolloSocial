@@ -78,7 +78,7 @@ public class subirExamenes extends HttpServlet {
                 ps.setString(2, patch);
                 ps.setInt(3, codigo);
                 ps.executeUpdate();
-                response.sendRedirect("Principal.jsp");
+                response.sendRedirect("MenuMedicinaGeneral.jsp");
             } catch (SQLException e) {
                 out.println("Exception: " + e);
                 System.out.println("Exception1: " + e);

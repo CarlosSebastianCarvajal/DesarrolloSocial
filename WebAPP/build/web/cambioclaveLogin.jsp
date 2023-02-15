@@ -127,9 +127,9 @@
             if (dni != null) {
                 ps = cn.getConecction().prepareStatement("update galeno set galeno_pass=md5('" + dni + "') where galeno_user='" + usuario + "' and galeno_dni = '" + Cedula + "'");
                 ps.executeUpdate();
-                JOptionPane.showMessageDialog(null, "LA CONTRASEÑA HA SIDO MODIFICADA CORRECTAMENTE.....");
-                response.sendRedirect("index.jsp");
-
+                //JOptionPane.showMessageDialog(null, "LA CONTRASEÑA HA SIDO MODIFICADA CORRECTAMENTE.....");
+                //response.sendRedirect("index.jsp");
+                response.sendRedirect(request.getContextPath() + "/index.jsp");
             }
         %>
     </body>

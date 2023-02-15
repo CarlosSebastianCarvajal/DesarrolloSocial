@@ -24,6 +24,7 @@
         
         <form id="form1" action="AddTerapiaFisica" method="GET" enctype="multipart/form-data">
         <section class="sec-main">
+            
             <div id="divv" class="div-cont-main">
                 <div class="div-cont-ced">
                     <input type="button" id="btn-actionb" class="inp-search" value="Buscar"/>
@@ -168,7 +169,7 @@
                                                 </thead>
                                                 <tbody>
                                                     <tr>
-                                                        <input  type="text" id="txt-tabla-datos-recomendacion" name="txt-tabla-datos-recomendacion" class="inp-lname"/>
+                                                        <input  hidden type="text" id="txt-tabla-datos-recomendacion" name="txt-tabla-datos-recomendacion" class="inp-lname"/>
                                                         <td><div class="div-cont-lname"><input type="text" onkeyup="mayus(this);" id="txt-recomendacion" class="inp-lname" placeholder="Actividad a realizar" name="medicamento"/></div></td>
                                                         <td><div class="div-cont-name"><input type="text"onkeyup="mayus(this);" id="txt-rec-indicacion" class="inp-name" placeholder="Indicación Médica" name="indicaciones"/></div></td>
                                                         <td><div style='margin-top: -20px !important;'class="div-cont-lname"><input type="button" id="btn-action-recomendacion" class="btn-accept" value="+"> 
@@ -226,7 +227,7 @@
                                                 </thead>
                                                 <tbody>
                                                     <tr>
-                                                        <input  type="text" id="txt-tabla-datos-medicamentos" name="txt-tabla-datos-medicamentos" class="inp-lname"/>
+                                                        <input hidden type="text" id="txt-tabla-datos-medicamentos" name="txt-tabla-datos-medicamentos" class="inp-lname"/>
                                                         <td><div class="div-cont-lname"><input type="text" onkeyup="mayus(this);" id="txt-medicamento" class="inp-lname" placeholder="Medicamento" name="medicamento"/></div></td>
                                                         <td><div class="div-cont-name"><input type="text"onkeyup="mayus(this);" id="txt-med-indicacion" class="inp-name" placeholder="Indicación Médica" name="indicaciones"/></div></td>
                                                         <td><div style='margin-top: -20px !important;'class="div-cont-lname"><input type="button" id="btn-action-receta" class="btn-accept" value="+"> 
@@ -343,9 +344,10 @@
                 }, "json");
             });
         })
+        /*
         function mayus(e) {
             e.value = e.value.toUpperCase();
-        }
+        }*/
         function verificarCedula(cedula) {
             if (typeof (cedula) == 'string' && cedula.length == 10 && /^\d+$/.test(cedula)) {
                 var digitos = cedula.split('').map(Number);

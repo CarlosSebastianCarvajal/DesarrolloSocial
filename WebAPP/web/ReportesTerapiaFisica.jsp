@@ -21,8 +21,12 @@
         </header>
         <div class="div-head-tittle"><h2></h2></div>
         
-        <!-- Reporte General de pacientes atendidos -->
-        <form name="form1" method="post" action="REPORTETerapiaFisicaGeneral.jsp">
+       <!-- 
+        <input type="button" onclick="javascript:menutf();" value="<-- Volver" class="btn-accept" />
+        
+       -->
+         <!-- Reporte General de pacientes atendidos -->
+        <form name="form1" method="post" action="REPORTETerapiaFisicaGeneral.jsp" target="_blank" >
             <section class="sec-main">
                 <div class="div-cont-main"> 
                     <div class="div-cont-ced">
@@ -37,13 +41,13 @@
                                     <th><div ></div>Ingrese Fecha Fin</th>
                                 </tr>
                                 <tr>
-                                    <td><div class="div-cont-ced" style='margin-top: 10px !important;'><input type="text" id="Usuario" class="inp-ced" placeholder="SU USUARIO ES" name="Usuario"/></div></td>
+                                    <td><div class="div-cont-ced" style='margin-top: 10px !important;'><input type="text" id="Usuario" class="inp-ced" placeholder="Su usuario es" name="Usuario"/></div></td>
                                     <td><div class="div-cont-lname"><label for="fechaInicio"></label><input type="date" id="fechaInicio" class="inp-lname" placeholder="Fecha Inicio"required=""  name="fechaInicio"onchange="myFunction(value)"/></div></td>
                                     <td><div class="div-cont-lname"><label for="fechaFin"></label><input type="date" id="fechaFin" class="inp-lname" placeholder="Fecha Fin"required=""  name="fechaFin"onchange="myFunction(value)"/></div></td>
                                 </tr>
                                 <tr>
                                     <td></td> 
-                                    <td><input type="submit" name="button" id="btn-actiong" class="btn-accept" value="Generar Reporte"/></td> 
+                                    <td><input type="submit" name="button" id="btn-actiong" class="btn-accept" value="Generar Reporte" style='width: 200px;'/></td> 
                                     <td></td> 
                                 </tr>
                             </tbody>   
@@ -54,7 +58,7 @@
         </form>
         
         <!-- Reporte de Atención de un solo pacientes-->
-        <form name="form1" method="post" action="REPORTEHistorialpaciente.jsp">
+        <form name="form1" method="post" action="REPORTETerapiaFisicaPaciente.jsp" target="_blank" >
             <section class="sec-main">
                 <div class="div-cont-main"> 
                     <div class="div-cont-ced">
@@ -69,9 +73,9 @@
                                     <th><div></div>Ingrese Fecha Fin</th>
                                 </tr>
                                 <tr>
-                                    <td><div class="div-cont-ced" style='margin-top: 10px !important;'><input type="text" id="Usuario" class="inp-ced" placeholder="SU USUARIO ES" name="Usuario"/></div></td>
-                                    <td><div class="div-cont-lname"><label for="fecha"></label><input type="date" id="fecha" class="inp-lname" placeholder="Fecha Inicio"required=""  name="fecha"onchange="myFunction(value)"/></div></td>
-                                    <td><div class="div-cont-lname"><label for="fecha"></label><input type="date" id="fecha" class="inp-lname" placeholder="Fecha Fin"required=""  name="fecha"onchange="myFunction(value)"/></div></td>
+                                    <td><div class="div-cont-ced" style='margin-top: 10px !important;'><input type="text" id="Usuario" class="inp-ced" placeholder="Su usuario es" name="Usuario"/></div></td>
+                                    <td><div class="div-cont-lname"><label for="fechaInicio"></label><input type="date" id="fechaInicio" class="inp-lname" placeholder="Fecha Inicio"required=""  name="fechaInicio"onchange="myFunction(value)"/></div></td>
+                                    <td><div class="div-cont-lname"><label for="fechaFin"></label><input type="date" id="fechaFin" class="inp-lname" placeholder="Fecha Fin"required=""  name="fechaFin"onchange="myFunction(value)"/></div></td>
                                 </tr>
                                 <tr>
                                     <th><div></div> Ingrese Cédula del paciente </th>
@@ -79,9 +83,9 @@
                                     <th></th>
                                 </tr>
                                 <tr>
-                                    <td><div class="div-cont-ced" style='margin-top: 10px !important;'><input type="text" id="Usuario" class="inp-ced" placeholder="Ingrese Cédula del Paciente" name="Usuario"/></div></td> 
+                                    <td><div class="div-cont-ced" style='margin-top: 10px !important;'><input type="text" id="cedulaPaciente" class="inp-ced" placeholder="Ingrese Cédula del Paciente" name="cedulaPaciente"/></div></td> 
                                     <td></td> 
-                                    <td><input type="submit" name="button" id="btn-actiong" class="btn-accept" value="Generar Reporte" /></td> 
+                                    <td><input type="submit" name="button" id="btn-actiong" class="btn-accept" value="Generar Reporte" style='width: 200px;'/></td> 
                                     
                                 </tr>
                             </tbody>   
@@ -92,9 +96,9 @@
         </form>
         
         <!-- Consulta terapia en casa -->
-        <form name="form1" method="post" action="REPORTEHistorialpaciente.jsp">
+        <form name="form1" method="post" action="REPORTETerapiaFisicaCasa.jsp" target="_blank" >
             <section class="sec-main">
-                <div class="div-cont-main"> 
+                <div class="div-cont-main">         
                     <div class="div-cont-ced">
                         <table style='width: 100%; text-align: center; margin-left: 20px; margin-top: 30px' >
                             <thead>
@@ -107,13 +111,13 @@
                                     <th><div></div>Ingrese Fecha de la cita</th>
                                 </tr>
                                 <tr>
-                                    <td><div class="div-cont-ced" style='margin-top: 10px !important;'><input type="text" id="Usuario" class="inp-ced" placeholder="SU USUARIO ES" name="Usuario"/></div></td>
-                                    <td><div class="div-cont-ced" style='margin-top: 10px !important;'><input type="text" id="Usuario" class="inp-ced" placeholder="INGRESE CÉDULA DEL PACIENTE" name="Usuario"/></div></td>
-                                    <td><div class="div-cont-lname"><label for="fecha"></label><input type="date" id="fecha" class="inp-lname" placeholder="Fecha Fin"required=""  name="fecha"onchange="myFunction(value)"/></div></td>
+                                    <td><div class="div-cont-ced" style='margin-top: 10px !important;'><input type="text" id="Usuario" class="inp-ced" placeholder="Su usuario es" name="Usuario"/></div></td>
+                                    <td><div class="div-cont-ced" style='margin-top: 10px !important;'><input type="text" id="cedulaPaciente" class="inp-ced" placeholder="Cédula del paciente" name="cedulaPaciente"/></div></td>
+                                    <td><div class="div-cont-lname"><label for="fechaConsulta"></label><input type="date" id="fechaConsulta" class="inp-lname" placeholder="Fecha"required=""  name="fechaConsulta"onchange="myFunction(value)"/></div></td>
                                 </tr>
                                 <tr>
                                     <td></td> 
-                                    <td><input type="submit" name="button" id="btn-actiong" class="btn-accept" value="CONSULTAR"/></td> 
+                                    <td><input type="submit" name="button" id="btn-actiong" class="btn-accept" value="CONSULTAR" style='width: 200px;'/></td> 
                                     <td></td> 
                                     
                                     
@@ -126,7 +130,7 @@
         </form>
         
         <!-- Consulta de recetario-->
-        <form name="form1" method="post" action="REPORTEHistorialpaciente.jsp">
+        <form name="form1" method="post" action="REPORTETerapiaFisicaReceta.jsp" target="_blank" >
             <section class="sec-main">
                 <div class="div-cont-main"> 
                     <div class="div-cont-ced">
@@ -141,13 +145,13 @@
                                     <th><div></div>Ingrese Fecha de la cita</th>
                                 </tr>
                                 <tr>
-                                    <td><div class="div-cont-ced" style='margin-top: 10px !important;'><input type="text" id="Usuario" class="inp-ced" placeholder="SU USUARIO ES" name="Usuario"/></div></td>
-                                    <td><div class="div-cont-ced" style='margin-top: 10px !important;'><input type="text" id="Usuario" class="inp-ced" placeholder="INGRESE CÉDULA DEL PACIENTE" name="Usuario"/></div></td>
-                                    <td><div class="div-cont-lname"><label for="fecha"></label><input type="date" id="fecha" class="inp-lname" placeholder="Fecha Fin"required=""  name="fecha"onchange="myFunction(value)"/></div></td>
+                                    <td><div class="div-cont-ced" style='margin-top: 10px !important;'><input type="text" id="Usuario" class="inp-ced" placeholder="Su usuario es" name="Usuario"/></div></td>
+                                    <td><div class="div-cont-ced" style='margin-top: 10px !important;'><input type="text" id="cedulaPaciente" class="inp-ced" placeholder="Cédula del paciente" name="cedulaPaciente"/></div></td>
+                                    <td><div class="div-cont-lname"><label for="fechaConsulta"></label><input type="date" id="fechaConsulta" class="inp-lname" placeholder="Fecha"required=""  name="fechaConsulta"onchange="myFunction(value)"/></div></td>
                                 </tr>
                                 <tr>
                                     <td></td> 
-                                    <td><input type="submit" name="button" id="btn-actiong" class="btn-accept" value="CONSULTAR"/></td> 
+                                    <td><input type="submit" name="button" id="btn-actiong" class="btn-accept" value="CONSULTAR" style='width: 200px;'/></td> 
                                     <td></td> 
                                     
                                     
@@ -160,7 +164,7 @@
         </form>
         
         <!-- Reporte de todos los pacientes atendidos de un mes especifico-->
-        
+        <!--
         <form name="form1" method="post" action="REPORTEHistorialpaciente.jsp">
             <section class="sec-main">
                 <div class="div-cont-main"> 
@@ -234,17 +238,16 @@
                 </div>
             </section>            
         </form>
-        
+        -->
+
         
         <script>
-
             window.onload=function() {
-                var seleccion=document.getElementById('select1');
-                var hoy = new Date();
-                var fecha = hoy.getDate() + '-' + ( hoy.getMonth() + 1 ) + '-' + hoy.getFullYear();
+                //var seleccion=document.getElementById('select1');
+                //var hoy = new Date();
+                //var fecha = hoy.getDate() + '-' + ( hoy.getMonth() + 1 ) + '-' + hoy.getFullYear();
                 //alert(fecha);
-                seleccion.selectedIndex = 3;
-                
+                //seleccion.selectedIndex = 3;
             }
             
             
@@ -253,6 +256,10 @@
                 a = val.split("-").reverse().join("/");
                 document.getElementById("fecha").type = "text";
                 document.getElementById("fecha").value = a;
+            }
+            
+            function menutf(){
+              window.location.href = "./MenuTerapiaFisica.jsp";
             }
         </script>
     </body>

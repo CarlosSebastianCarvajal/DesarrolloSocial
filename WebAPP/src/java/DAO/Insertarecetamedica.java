@@ -115,6 +115,8 @@ public class Insertarecetamedica {
             if (con != null) {
                 Statement st;
                 st = con.createStatement();
+                String  qu = "select * from detallereceta(" + idrecet + ",'" + medicamento + "','" + indicaciones + "')";
+                System.err.println("Query: "+qu);
                 st.executeUpdate("select * from detallereceta(" + idrecet + ",'" + medicamento + "','" + indicaciones + "')");
                 st.close();
             }
